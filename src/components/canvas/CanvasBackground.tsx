@@ -2,11 +2,25 @@
 
 import { useEffect, useRef, useCallback } from "react";
 
+function getThemeColors() {
+  const s = getComputedStyle(document.documentElement);
+  return {
+    start: s.getPropertyValue("--canvas-start").trim() || "#f5f5f6",
+    mid: s.getPropertyValue("--canvas-mid").trim() || "#e8e8ea",
+    end: s.getPropertyValue("--canvas-end").trim() || "#dcdcdf",
+    glowR: s.getPropertyValue("--canvas-glow-r").trim() || "74",
+    glowG: s.getPropertyValue("--canvas-glow-g").trim() || "74",
+    glowB: s.getPropertyValue("--canvas-glow-b").trim() || "90",
+  };
+}
+
 function drawTexture(ctx: CanvasRenderingContext2D, w: number, h: number, mobile: boolean) {
+  const c = getThemeColors();
+
   const grad = ctx.createLinearGradient(0, 0, 0, h);
-  grad.addColorStop(0, "#f5f5f6");
-  grad.addColorStop(0.5, "#e8e8ea");
-  grad.addColorStop(1, "#dcdcdf");
+  grad.addColorStop(0, c.start);
+  grad.addColorStop(0.5, c.mid);
+  grad.addColorStop(1, c.end);
   ctx.fillStyle = grad;
   ctx.fillRect(0, 0, w, h);
 
@@ -68,6 +82,8 @@ export default function CanvasBackground() {
     return () => { cancelAnimationFrame(raf); window.removeEventListener("resize", draw); };
   }, [draw]);
 
+  const c = typeof window !== "undefined" ? getThemeColors() : { glowR: "74", glowG: "74", glowB: "90" };
+
   return (
     <div className="absolute inset-0 pointer-events-none z-0">
       <canvas ref={canvasRef} className="absolute inset-0" aria-hidden="true" />
@@ -75,8 +91,8 @@ export default function CanvasBackground() {
         className="absolute inset-0"
         style={{
           background: [
-            "radial-gradient(ellipse at 25% 20%, rgba(74,74,90,0.18), transparent 70%)",
-            "radial-gradient(ellipse at 75% 70%, rgba(74,74,90,0.10), transparent 60%)",
+            `radial-gradient(ellipse at 25% 20%, rgba(${c.glowR},${c.glowG},${c.glowB},0.14), transparent 70%)`,
+            `radial-gradient(ellipse at 75% 70%, rgba(${c.glowR},${c.glowG},${c.glowB},0.08), transparent 60%)`,
           ].join(", "),
         }}
         aria-hidden="true"

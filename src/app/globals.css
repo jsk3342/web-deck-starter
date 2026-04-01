@@ -1,7 +1,10 @@
 @import "tailwindcss";
 
-:root {
-  /* ===== Briefing Slide Colors ===== */
+/* ═══════════════════════════════════════════
+   Theme: Corporate (기본)
+   깔끔하고 전문적인 그린 톤
+   ═══════════════════════════════════════════ */
+:root, [data-theme="corporate"] {
   --briefing-bg: #f5f5f6;
   --briefing-card: #ffffff;
   --briefing-heading: #1e1e24;
@@ -11,7 +14,60 @@
   --briefing-negative: #ef4444;
   --briefing-excluded: #d1d5db;
 
-  /* ===== Slide Typography ===== */
+  --canvas-start: #f5f5f6;
+  --canvas-mid: #e8e8ea;
+  --canvas-end: #dcdcdf;
+  --canvas-glow-r: 74;
+  --canvas-glow-g: 74;
+  --canvas-glow-b: 90;
+}
+
+/* ═══════════════════════════════════════════
+   Theme: Ocean
+   시원하고 모던한 블루 톤
+   ═══════════════════════════════════════════ */
+[data-theme="ocean"] {
+  --briefing-bg: #f0f4f8;
+  --briefing-card: #ffffff;
+  --briefing-heading: #0f172a;
+  --briefing-body: #475569;
+  --briefing-accent: #1e40af;
+  --briefing-muted: #94a3b8;
+  --briefing-negative: #dc2626;
+  --briefing-excluded: #cbd5e1;
+
+  --canvas-start: #f0f4f8;
+  --canvas-mid: #dce6f0;
+  --canvas-end: #c8d8e8;
+  --canvas-glow-r: 30;
+  --canvas-glow-g: 64;
+  --canvas-glow-b: 175;
+}
+
+/* ═══════════════════════════════════════════
+   Theme: Warm
+   따뜻하고 자연스러운 앰버 톤
+   ═══════════════════════════════════════════ */
+[data-theme="warm"] {
+  --briefing-bg: #faf8f5;
+  --briefing-card: #ffffff;
+  --briefing-heading: #292524;
+  --briefing-body: #57534e;
+  --briefing-accent: #92400e;
+  --briefing-muted: #a8a29e;
+  --briefing-negative: #dc2626;
+  --briefing-excluded: #d6d3d1;
+
+  --canvas-start: #faf8f5;
+  --canvas-mid: #f0ebe4;
+  --canvas-end: #e6dfd6;
+  --canvas-glow-r: 146;
+  --canvas-glow-g: 64;
+  --canvas-glow-b: 14;
+}
+
+/* ===== Slide Typography ===== */
+:root {
   --slide-text-kpi: clamp(4rem, 10vw, 8rem);
   --slide-text-h1: clamp(1.875rem, 3.5vw, 3rem);
   --slide-text-h2: clamp(1.25rem, 2vw, 1.75rem);
@@ -60,4 +116,18 @@ body {
   40% { transform: translateX(8px); }
   60% { transform: translateX(-6px); }
   80% { transform: translateX(6px); }
+}
+
+/* ===== Print → PDF ===== */
+@media print {
+  body { background: white; }
+  /* 각 슬라이드를 한 페이지로 */
+  .h-screen { break-after: page; height: 100vh; }
+  /* 애니메이션 최종 상태로 고정 */
+  [style*="opacity"] { opacity: 1 !important; }
+  * { animation: none !important; transition: none !important; }
+  /* 네비게이션 UI 숨기기 */
+  .fixed { display: none !important; }
+  /* 캔버스 배경은 인쇄 시 가볍게 */
+  canvas { display: none !important; }
 }
