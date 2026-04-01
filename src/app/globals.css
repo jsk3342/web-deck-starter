@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+:root {
+  /* ===== Briefing Slide Colors ===== */
+  --briefing-bg: #f5f5f6;
+  --briefing-card: #ffffff;
+  --briefing-heading: #1e1e24;
+  --briefing-body: #606069;
+  --briefing-accent: #166534;
+  --briefing-muted: #9ca3af;
+  --briefing-negative: #ef4444;
+  --briefing-excluded: #d1d5db;
+
+  /* ===== Slide Typography ===== */
+  --slide-text-kpi: clamp(4rem, 10vw, 8rem);
+  --slide-text-h1: clamp(1.875rem, 3.5vw, 3rem);
+  --slide-text-h2: clamp(1.25rem, 2vw, 1.75rem);
+  --slide-text-h3: clamp(1rem, 1.5vw, 1.25rem);
+  --slide-text-body: clamp(0.875rem, 1.2vw, 1rem);
+  --slide-text-caption: clamp(0.625rem, 0.8vw, 0.75rem);
+
+  /* ===== Slide Layout ===== */
+  --slide-max-w: 72rem;
+  --slide-padding-x: 3rem;
+  --slide-gap-card: 1.25rem;
+  --slide-gap-section: 2.5rem;
+  --slide-pad-card: 1.5rem;
+
+  /* ===== Chart Palette (Tableau 10) ===== */
+  --chart-1: #4e79a7;
+  --chart-2: #f28e2b;
+  --chart-3: #e15759;
+  --chart-4: #76b7b2;
+  --chart-5: #59a14f;
+  --chart-6: #edc949;
+  --chart-7: #af7aa1;
+  --chart-8: #ff9da7;
+  --chart-9: #9c755f;
+  --chart-10: #bab0ab;
+}
+
+@theme inline {
+  --font-sans: var(--font-inter), "Pretendard Variable", "Pretendard", -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+body {
+  background: var(--briefing-bg);
+  color: var(--briefing-heading);
+  font-family: var(--font-sans);
+}
+
+:fullscreen {
+  background: var(--briefing-bg);
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-6px); }
+  80% { transform: translateX(6px); }
+}
