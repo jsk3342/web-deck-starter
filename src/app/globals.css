@@ -1,32 +1,10 @@
 @import "tailwindcss";
 
 /* ═══════════════════════════════════════════
-   Theme: Corporate (기본)
-   깔끔하고 전문적인 그린 톤
-   ═══════════════════════════════════════════ */
-:root, [data-theme="corporate"] {
-  --briefing-bg: #f5f5f6;
-  --briefing-card: #ffffff;
-  --briefing-heading: #1e1e24;
-  --briefing-body: #606069;
-  --briefing-accent: #166534;
-  --briefing-muted: #9ca3af;
-  --briefing-negative: #ef4444;
-  --briefing-excluded: #d1d5db;
-
-  --canvas-start: #f5f5f6;
-  --canvas-mid: #e8e8ea;
-  --canvas-end: #dcdcdf;
-  --canvas-glow-r: 74;
-  --canvas-glow-g: 74;
-  --canvas-glow-b: 90;
-}
-
-/* ═══════════════════════════════════════════
-   Theme: Ocean
+   Theme: Ocean (기본)
    시원하고 모던한 블루 톤
    ═══════════════════════════════════════════ */
-[data-theme="ocean"] {
+:root, [data-theme="ocean"] {
   --briefing-bg: #f0f4f8;
   --briefing-card: #ffffff;
   --briefing-heading: #0f172a;
@@ -42,6 +20,28 @@
   --canvas-glow-r: 30;
   --canvas-glow-g: 64;
   --canvas-glow-b: 175;
+}
+
+/* ═══════════════════════════════════════════
+   Theme: Corporate
+   깔끔하고 전문적인 그린 톤
+   ═══════════════════════════════════════════ */
+[data-theme="corporate"] {
+  --briefing-bg: #f5f5f6;
+  --briefing-card: #ffffff;
+  --briefing-heading: #1e1e24;
+  --briefing-body: #606069;
+  --briefing-accent: #166534;
+  --briefing-muted: #9ca3af;
+  --briefing-negative: #ef4444;
+  --briefing-excluded: #d1d5db;
+
+  --canvas-start: #f5f5f6;
+  --canvas-mid: #e8e8ea;
+  --canvas-end: #dcdcdf;
+  --canvas-glow-r: 74;
+  --canvas-glow-g: 74;
+  --canvas-glow-b: 90;
 }
 
 /* ═══════════════════════════════════════════
